@@ -21,13 +21,20 @@ public class Challenge1 {
     private static String lastName;
     private static String fullName;
     private static final String getFullNameMessage = "Enter full name";
-    private static final String PARAM_ERR = "Entry cannot be null or zero length";
+    private static final String PARAM_ERR = "Entry cannot be null or zero"
+            + " length.  Please re-enter full name.";
 
     public static void main(String[] args) {
         Challenge1 app = new Challenge1();
         
-        
+        try{
         fullName = getFullName(getFullNameMessage);
+        }catch (Exception ex){
+                  
+            
+            fullName = getFullName(PARAM_ERR);
+            
+        }
         lastName = app.extractLastName(fullName);
         if (lastName == null){
         do{
@@ -50,6 +57,9 @@ public class Challenge1 {
             throw new IllegalArgumentException(PARAM_ERR);
         }
     String name = JOptionPane.showInputDialog(inputMessage);
+        if (name == null || name.length() ==0){
+            throw new IllegalArgumentException(PARAM_ERR);
+        }
     return name;
     }
     
