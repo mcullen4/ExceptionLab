@@ -1,7 +1,5 @@
 package lab2;
 
-import javax.swing.JOptionPane;
-
 /**
  * This class provides various services relating to name manipulation.
  * No output should be performed here.
@@ -60,9 +58,7 @@ public class NameService {
         //if more than two words in array, asks the user to confirm the last name
         
         if (nameParts.length > LAST_NAME_IDX+1){
-            String reEnteredLastName = JOptionPane.showInputDialog("You entered "
-                    + fullName+ ".  Please "
-                    + "re-enter only the last name to confirm.");
+            String reEnteredLastName = InputOutputGui.getConfirmedLastName(fullName);
             if (reEnteredLastName.equals(nameParts[nameParts.length-1])){
             extractedLastName = nameParts[nameParts.length-1];
             }
@@ -109,6 +105,10 @@ public class NameService {
      */
     public int getNameLength(String name) throws Exception{
         return name.length();
+    }
+
+    public static String getLAST_NAME_ERR() {
+        return LAST_NAME_ERR;
     }
     
 }
