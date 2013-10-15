@@ -10,6 +10,7 @@ package lab3;
 public class NameService {
     private static final int FIRST_NAME_IDX = 0;
     private static final int LAST_NAME_IDX = 1;
+    private static final String PARAM_ERR = "Entry cannot be null or zero length";
     
     /**
      * Finds and returns the last name from within a full name. Caution: 
@@ -30,7 +31,11 @@ public class NameService {
      * @param fullName - a name containing a first name and a last name
      * @return the first name
      */
-    public String extractFirstName(String fullName) {
+    public String extractFirstName(String fullName) throws Exception {
+        if(fullName == null || fullName.length()==0)
+        {
+            throw new IllegalArgumentException(PARAM_ERR);
+        }
         String[] nameParts = fullName.split(" ");
         return nameParts[FIRST_NAME_IDX];
     }

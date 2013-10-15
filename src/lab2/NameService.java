@@ -93,6 +93,10 @@ public class NameService {
      * @return the first name
      */
     public String extractFirstName(String fullName) throws Exception {
+        if(fullName == null || fullName.length()==0)
+        {
+            throw new IllegalArgumentException(PARAM_ERR);
+        }
         String[] nameParts = fullName.split(" ");
         return nameParts[FIRST_NAME_IDX];
     }
@@ -104,6 +108,10 @@ public class NameService {
      * @return the length of the name or part.
      */
     public int getNameLength(String name) throws Exception{
+        if(name == null || name.length()==0)
+        {
+            throw new IllegalArgumentException(PARAM_ERR);
+        }
         return name.length();
     }
 
