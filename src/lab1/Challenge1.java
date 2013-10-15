@@ -100,6 +100,8 @@ public class Challenge1 {
         }
         }
         }
+        //if more than two words in array, asks the user to confirm the last name
+        
         if (nameParts.length > LAST_NAME_IDX+1){
             String reEnteredLastName = JOptionPane.showInputDialog("You entered "
                     + fullName+ ".  Please "
@@ -117,9 +119,14 @@ public class Challenge1 {
                     "Please re-enter full name";
             
         } }  
+        
+        //if there is an error message in LAST_NAME_ERR, returns a null value so
+        //that the loop continues for proper entry
         if (LAST_NAME_ERR != null){
                 
         return null;
+        
+        //if there is no error message, returns extracted last name
         }else{
         
         return extractedLastName;
